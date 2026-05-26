@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import "./styles.css";
+
+@theme {
+  --font-sans: "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: #FFFFFF;
+  --color-secondary: #F5F5F7;
+  --color-text-primary: #1D1D1F;
+  --color-accent: #0071E3;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text-primary font-sans antialiased;
+    line-height: 1.6;
+    direction: rtl;
+  }
+}
