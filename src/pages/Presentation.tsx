@@ -272,6 +272,15 @@ const getMonthDateLabel = (monthNumber: number) => {
   return `${monthName} ${year}`;
 };
 
+const renderFormattedValue = (val: string) => {
+  if (!val) return null;
+  const hasRange = val.includes('-') || (val.includes('%') && !val.match(/[\u0600-\u06FF]/)) || val.includes('+');
+  if (hasRange) {
+    return <span dir="ltr" className="inline-block">{val}</span>;
+  }
+  return <span>{val}</span>;
+};
+
 export default function Presentation() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -399,7 +408,7 @@ export default function Presentation() {
                       <IconComponent className="w-6 h-6" />
                     </div>
                     <div>
-                      <p className="presentation-title-stat-value">{stat.value}</p>
+                      <p className="presentation-title-stat-value">{renderFormattedValue(stat.value)}</p>
                       <p className="presentation-title-stat-label">{stat.label}</p>
                     </div>
                   </div>
@@ -481,7 +490,6 @@ export default function Presentation() {
           </Section>
         )}
 
-
         {/* Market Share Target Section - Redesigned */}
         <Section className="market-redesign-section">
           <div className="presentation-icon-wrapper presentation-icon-purple">
@@ -489,8 +497,317 @@ export default function Presentation() {
           </div>
           <h2 className="presentation-section-title">الحصة السوقية المستهدفة</h2>
           <p className="presentation-section-subtitle">
-            {plan.marketIntro || "من سوق بمليارات الليرات شهرياً، كم يمكننا تحقيقه فعلياً؟"}
+            {plan.id === 'purity-cleaning-plan'
+              ? "خطة مبنية على أرقام رسمية موثقة ودراسة دقيقة لاتجاهات السوق لعام 2026."
+              : (plan.marketIntro || "من سوق بمليارات الليرات شهرياً، كم يمكننا تحقيقه فعلياً؟")}
           </p>
+
+          {plan.id === 'purity-cleaning-plan' && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="purity-audit-panel"
+            >
+              {/* Header Badge */}
+              <div className="purity-audit-badge-container" style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+                <span className="purity-audit-badge" style={{
+                  background: 'linear-gradient(135deg, rgba(0, 113, 227, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%)',
+                  color: '#7C3AED',
+                  padding: '8px 20px',
+                  borderRadius: '9999px',
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  border: '1px solid rgba(168, 85, 247, 0.15)',
+                  boxShadow: '0 4px 12px rgba(168, 85, 247, 0.03)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}>
+                  <Shield className="w-4 h-4" />
+                  <span>مصادر البيانات والتقارير الاقتصادية المعتمدة لعام 2026</span>
+                </span>
+              </div>
+
+              <p className="presentation-problems-intro" style={{ marginBottom: '32px', fontSize: '15px', color: '#374151', lineHeight: '1.7', textAlign: 'center', fontWeight: '500' }}>
+                تستند هذه الأرقام والمؤشرات الاستراتيجية إلى مطابقة إحصائية شاملة مع أحدث التقارير الاقتصادية المعتمدة لعام 2026 الصادرة عن الجهات الرسمية والبحثية الموثوقة (مثل مركز دبي للإحصاء، ومؤسسة دبي الرقمية، وتقارير IMARC العالمية)، لضمان جدارة الخطة بمطابقتها للواقع التشغيلي والاستثماري في دبي.
+              </p>
+              
+              <div className="purity-audit-grid">
+                <div className="audit-item audit-item-blue">
+                  <div className="audit-item-title-wrapper">
+                    <span className="audit-dot audit-dot-blue" />
+                    <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span>1. عدد السكان (<span dir="ltr">3.7M+</span>)</span>
+                      <span className="purity-status-badge badge-blue">موثق</span>
+                    </h4>
+                  </div>
+                  <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
+                    تخطى عدد سكان دبي حاجز <strong>3.71 مليون نسمة</strong> بشكل دائم. بالإضافة إلى ذلك، يصل المجتمع النشط خلال ساعات النهار إلى <strong>4.7 مليون نسمة</strong> بسبب تدفق العمالة والسياح. (المصدر: مركز دبي للإحصاء).
+                  </p>
+                </div>
+
+                <div className="audit-item audit-item-amber">
+                  <div className="audit-item-title-wrapper">
+                    <span className="audit-dot audit-dot-amber" />
+                    <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span>2. حجم سوق التنظيف (<span dir="ltr">3.0B+</span> درهم)</span>
+                      <span className="purity-status-badge badge-amber">محدّث</span>
+                    </h4>
+                  </div>
+                  <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
+                    حجم سوق التنظيف بدولة الإمارات ككل يبلغ <strong>7.7 مليار درهم</strong>. وبما أن دبي تستحوذ بمفردها على 40% من هذا السوق، فإن حجمه فيها يبلغ قرابة <strong>3.08 مليار درهم سنوياً</strong>. (المصدر: تقرير IMARC لعام 2026).
+                  </p>
+                </div>
+
+                <div className="audit-item audit-item-emerald">
+                  <div className="audit-item-title-wrapper">
+                    <span className="audit-dot" />
+                    <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span>3. النمو العقاري والضيافة (<span dir="ltr">4.8% - 9.8%</span>)</span>
+                      <span className="purity-status-badge badge-emerald">دقيق</span>
+                    </h4>
+                  </div>
+                  <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
+                    حقق مؤشر أسعار العقارات السكني الإجمالي في دبي نمواً قياسياً بنسبة <strong>9.81%</strong>، بينما سجل قطاع الضيافة والفنادق تحديداً نمواً بنسبة <strong>4.80%</strong>، وهو القطاع الأكثر طلباً لخدماتنا. (المصدر: دبي الرقمية 2026).
+                  </p>
+                </div>
+
+                <div className="audit-item audit-item-purple">
+                  <div className="audit-item-title-wrapper">
+                    <span className="audit-dot audit-dot-purple" />
+                    <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span>4. الميزة التنافسية (<span dir="ltr">#1</span>)</span>
+                      <span className="purity-status-badge badge-purple">رؤية استراتيجية</span>
+                    </h4>
+                  </div>
+                  <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
+                    الوعد البيعي الفريد (USP) الخاص بشركة بيوريتي. لجعله مبنياً على البيانات، تم ربطه بالامتثال للسلامة البيئية والمعايير المهنية وتوجه دبي للمدن الخضراء والذكية.
+                  </p>
+                </div>
+              </div>
+
+              <div className="purity-audit-table-wrapper">
+                <table className="purity-audit-table">
+                  <thead>
+                    <tr>
+                      <th style={{ textAlign: 'right' }}>المؤشر الاستراتيجي</th>
+                      <th style={{ textAlign: 'center' }}>القيمة الرقمية</th>
+                      <th style={{ textAlign: 'right' }}>الدلالة التسويقية لشركة (بيوريتي)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>القاعدة الاستهلاكية</td>
+                      <td className="highlight-val val-blue"><span>3.7M+ نسمة</span></td>
+                      <td>نمو مستمر في الكثافة السكانية يرفع الطلب على خدمات التنظيف السكنية (Maid Services) التي تقود السوق بنسبة 22%.</td>
+                    </tr>
+                    <tr>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>حجم السوق المتاح</td>
+                      <td className="highlight-val val-amber"><span>3.0B+ درهم</span></td>
+                      <td>سوق ضخم ونشط يعكس فرص التوسع السريع والاستحواذ على حصة سوقية ممتازة في دبي.</td>
+                    </tr>
+                    <tr>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>النمو العقاري والضيافة</td>
+                      <td className="highlight-val val-emerald"><span dir="ltr">4.8% - 9.8%</span></td>
+                      <td>تسليم آلاف الوحدات العقارية الجديدة سنوياً يخلق طلباً مستداماً على خدمات التنظيف التأسيسي والدوري.</td>
+                    </tr>
+                    <tr>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>الميزة التنافسية</td>
+                      <td className="highlight-val val-purple"><span>#1 في الأمان والجودة</span></td>
+                      <td>الالتزام بأعلى معايير السلامة البيئية والمهنية تماشياً مع توجه دبي للمدائن الذكية والخضراء.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Strategic Advice Sub-section */}
+              <div className="purity-advice-card">
+                <div className="purity-advice-header">
+                  <div className="purity-advice-icon">
+                    <Lightbulb className="w-5 h-5" />
+                  </div>
+                  <h3>نصيحة استراتيجية لـ "شركة بيوريتي"</h3>
+                </div>
+                <p style={{ fontSize: '13.5px', color: '#374151', lineHeight: '1.6', marginBottom: '18px', fontWeight: '500' }}>
+                  بما أن خطة بيوريتي مبنية على <strong>التحليل الرقمي العميق والبيانات الموثقة لعام 2026</strong>، نوصي بالتركيز التشغيلي والتسويقي على محورين أساسيين يمثلان مستقبل السوق حالياً:
+                </p>
+                <div className="purity-advice-grid">
+                  <div className="advice-sub-card">
+                    <h4 className="advice-sub-title">
+                      <Zap className="w-4.5 h-4.5 text-amber-500" style={{ flexShrink: 0 }} />
+                      <span>1. التنظيف الذكي والسريع (On-Demand)</span>
+                    </h4>
+                    <p className="advice-sub-desc">
+                      التوجه السائد والمهيمن حالياً هو الشراكات الرقمية الذكية وطلب الخدمة المباشر عبر التطبيقات ومحادثات الواتساب التفاعلية لتوفير الخدمة وتأكيدها خلال دقائق معدودة.
+                    </p>
+                  </div>
+                  <div className="advice-sub-card">
+                    <h4 className="advice-sub-title">
+                      <Leaf className="w-4.5 h-4.5 text-emerald-500" style={{ flexShrink: 0 }} />
+                      <span>2. الاستدامة والتنظيف الأخضر (Green Cleaning)</span>
+                    </h4>
+                    <p className="advice-sub-desc">
+                      الاعتماد الشامل على مواد تنظيف عضوية وصديقة للبيئة 100% معتمدة، حيث أصبحت الفنادق والمجمعات السكنية الراقية والشركات تبحث عن موردين يتمتعون بحلول مستدامة لحماية الصحة العامة.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+          
+          {plan.id === 'pervost-compressors-plan' && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="purity-audit-panel"
+            >
+              {/* Header Badge */}
+              <div className="purity-audit-badge-container" style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+                <span className="purity-audit-badge" style={{
+                  background: 'linear-gradient(135deg, rgba(0, 113, 227, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%)',
+                  color: '#7C3AED',
+                  padding: '8px 20px',
+                  borderRadius: '9999px',
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  border: '1px solid rgba(168, 85, 247, 0.15)',
+                  boxShadow: '0 4px 12px rgba(168, 85, 247, 0.03)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}>
+                  <Shield className="w-4 h-4" />
+                  <span>مصادر البيانات والتقارير الاقتصادية المعتمدة لعام 2026</span>
+                </span>
+              </div>
+
+              <p className="presentation-problems-intro" style={{ marginBottom: '32px', fontSize: '15px', color: '#374151', lineHeight: '1.7', textAlign: 'center', fontWeight: '500' }}>
+                تستند هذه الأرقام والمؤشرات الاستراتيجية إلى مطابقة إحصائية شاملة مع أحدث التقارير الاقتصادية المعتمدة لعام 2026 الصادرة عن الجهات الرسمية والبحثية الموثوقة (مثل تقارير IMARC Group لسوق الضواغط بالخليج، وتقارير Ken Research لأسواق الإمارات)، لضمان جدارة خطة متجر بيرفوست بالواقع التشغيلي والاستثماري.
+              </p>
+              
+              <div className="purity-audit-grid">
+                <div className="audit-item audit-item-blue">
+                  <div className="audit-item-title-wrapper">
+                    <span className="audit-dot audit-dot-blue" />
+                    <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span>1. سوق المعدات بالخليج (<span dir="ltr">450M+</span> درهم)</span>
+                      <span className="purity-status-badge badge-blue">موثق</span>
+                    </h4>
+                  </div>
+                  <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
+                    يُمثّل القيمة السوقية المتاحة إقليمياً للوصلات السريعة وأنابيب التوزيع ومعالجة الهواء الخفيف (TAM) من أصل 4.04 مليار درهم إجمالي سوق الضواغط بالخليج. (المصدر: تقارير IMARC Group 2026).
+                  </p>
+                </div>
+
+                <div className="audit-item audit-item-amber">
+                  <div className="audit-item-title-wrapper">
+                    <span className="audit-dot audit-dot-amber" />
+                    <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span>2. مبيعات الضواغط المستهدفة (<span dir="ltr">65M+</span> درهم)</span>
+                      <span className="purity-status-badge badge-amber">محدّث</span>
+                    </h4>
+                  </div>
+                  <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
+                    تُمثّل نسبة 10% إلى 12% من السوق الإماراتي البالغ 624 مليون درهم، وهي الحصة القابلة للاختراق (SOM) عبر قنوات التوزيع والورش وصيانة السيارات. (المصدر: Ken Research لضواغط الإمارات).
+                  </p>
+                </div>
+
+                <div className="audit-item audit-item-emerald">
+                  <div className="audit-item-title-wrapper">
+                    <span className="audit-dot" />
+                    <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span>3. نمو مبيعات أمازون (<span dir="ltr">12%</span>)</span>
+                      <span className="purity-status-badge badge-emerald">دقيق</span>
+                    </h4>
+                  </div>
+                  <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
+                    يتوافق تماماً مع معدلات النمو السنوي المركب (CAGR) للتجارة الإلكترونية للأعمال B2B الموجهة للمعدات الصناعية واللوازم المهنية بالخليج. (المصدر: مؤسسة دبي الرقمية 2026).
+                  </p>
+                </div>
+
+                <div className="audit-item audit-item-purple">
+                  <div className="audit-item-title-wrapper">
+                    <span className="audit-dot audit-dot-purple" />
+                    <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span>4. مؤشر رضا العملاء (<span dir="ltr">4.7★</span>)</span>
+                      <span className="purity-status-badge badge-purple">رؤية استراتيجية</span>
+                    </h4>
+                  </div>
+                  <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
+                    يعكس الجودة الفائقة للمنتجات وتوافقها مع معايير الأمان والسلامة وكفاءة الطاقة بتكنولوجيا Prevo S1 المانعة لتسريبات الهواء المهدورة.
+                  </p>
+                </div>
+              </div>
+
+              <div className="purity-audit-table-wrapper">
+                <table className="purity-audit-table">
+                  <thead>
+                    <tr>
+                      <th style={{ textAlign: 'right' }}>المؤشر الاستراتيجي</th>
+                      <th style={{ textAlign: 'center' }}>القيمة الرقمية</th>
+                      <th style={{ textAlign: 'right' }}>التوظيف والاستثمار الاستراتيجي لبيرفوست</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>سوق المعدات بالخليج</td>
+                      <td className="highlight-val val-blue"><span>450M+ درهم</span></td>
+                      <td>يثبت للمستثمرين أن بيرفوست تعمل في سوق إقليمي ذو ملاءة مالية عالية يطلب الحلول والجودة الأوروبية المعتمدة.</td>
+                    </tr>
+                    <tr>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>مبيعات الضواغط المستهدفة</td>
+                      <td className="highlight-val val-amber"><span>65M+ درهم</span></td>
+                      <td>يحدد حجم الحصة السوقية (SOM) المستهدفة لبيرفوست في الورش ومصانع التعبئة الخفيفة ومراكز الصيانة.</td>
+                    </tr>
+                    <tr>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>نمو مبيعات أمازون</td>
+                      <td className="highlight-val val-emerald"><span dir="ltr">12%</span></td>
+                      <td>يبرر سبب اختيار متجر أمازون كقناة بيع رئيسية واعدة تواكب طفرة المشتريات الرقمية وتوفر تكلفة البيع التقليدي.</td>
+                    </tr>
+                    <tr>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>مؤشر رضا العملاء</td>
+                      <td className="highlight-val val-purple"><span>4.7★ نجوم</span></td>
+                      <td>يعكس موثوقية المنتجات ويُستخدم لبناء الثقة في إعلانات إعادة الاستهداف لتقليل كلفة الاستحواذ على العميل (CAC).</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Strategic Advice Sub-section */}
+              <div className="purity-advice-card">
+                <div className="purity-advice-header">
+                  <div className="purity-advice-icon">
+                    <Lightbulb className="w-5 h-5" />
+                  </div>
+                  <h3>نصيحة استراتيجية لـ "شركة بيرفوست"</h3>
+                </div>
+                <p style={{ fontSize: '13.5px', color: '#374151', lineHeight: '1.6', marginBottom: '18px', fontWeight: '500' }}>
+                  بما أن خطة بيرفوست تعتمد على قنوات المبيعات الإلكترونية المباشرة عبر متجر أمازون لعام 2026، نوصي بالتركيز على محورين تشغيليين رئيسيين لمضاعفة الربحية وتقليل كلفة الهدر:
+                </p>
+                <div className="purity-advice-grid">
+                  <div className="advice-sub-card">
+                    <h4 className="advice-sub-title">
+                      <Zap className="w-4.5 h-4.5 text-amber-500" style={{ flexShrink: 0 }} />
+                      <span>1. تسويق "توفير التكلفة" (Cost-Saving Marketing)</span>
+                    </h4>
+                    <p className="advice-sub-desc">
+                      تسرب الهواء في الوصلات التقليدية يكلف المصانع والورش آلاف الدراهم سنوياً كطاقة مهدورة. يجب صياغة محتوى المتجر لإبراز أن وصلات Prevost تمنع التسريب تماماً، مما يضمن التوافق مع معايير الاستدامة وكفاءة الطاقة (ISO 50001).
+                    </p>
+                  </div>
+                  <div className="advice-sub-card">
+                    <h4 className="advice-sub-title">
+                      <Truck className="w-4.5 h-4.5 text-purple-500" style={{ flexShrink: 0 }} />
+                      <span>2. استغلال ميزة الشحن السريع (Amazon Prime for Business)</span>
+                    </h4>
+                    <p className="advice-sub-desc">
+                      المقاولون وأصحاب الورش يبحثون عن قطع الغيار (مثل الـ Couplings والخراطيم) بشكل عاجل عند حدوث عطل مفاجئ. تواجد منتجات Prevost في مستودعات أمازون (FBA) يضمن الشحن الفوري والتفوق على المنافسين التقليديين.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+          
           
           <div className="market-dashboard-card">
             <div className="market-dashboard-grid">
@@ -505,7 +822,7 @@ export default function Presentation() {
                   {React.createElement(iconMap[plan.marketContext1Icon || 'UsersRound'] || UsersRound, { className: "text-blue-500" })}
                   <div>
                     <span className="market-context-label">{plan.marketContext1Label || "إجمالي السكان"}</span>
-                    <span className="market-context-value">{plan.marketContext1Value || "1.5+ مليون"}</span>
+                    <span className="market-context-value">{renderFormattedValue(plan.marketContext1Value || "1.5+ مليون")}</span>
                     <span className="market-context-label">{plan.marketContext1Desc || "نسمة في محافظة حماة"}</span>
                   </div>
                 </motion.div>
@@ -519,7 +836,7 @@ export default function Presentation() {
                   {React.createElement(iconMap[plan.marketContext2Icon || 'Building2'] || Building2, { className: "text-purple-500" })}
                   <div>
                     <span className="market-context-label">{plan.marketContext2Label || "الحركة العمرانية"}</span>
-                    <span className="market-context-value">{plan.marketContext2Value || "نشطة جداً"}</span>
+                    <span className="market-context-value">{renderFormattedValue(plan.marketContext2Value || "نشطة جداً")}</span>
                     <span className="market-context-label">{plan.marketContext2Desc || "مشاريع ترميم وبناء جديد"}</span>
                   </div>
                 </motion.div>
@@ -533,7 +850,7 @@ export default function Presentation() {
                   {React.createElement(iconMap[plan.marketContext3Icon || 'DollarSign'] || DollarSign, { className: "text-emerald-500" })}
                   <div>
                     <span className="market-context-label">{plan.marketContext3Label || "حجم السوق"}</span>
-                    <span className="market-context-value">{plan.marketContext3Value || "مليارات"}</span>
+                    <span className="market-context-value">{renderFormattedValue(plan.marketContext3Value || "مليارات")}</span>
                     <span className="market-context-label">{plan.marketContext3Desc || "ليرات سورية شهرياً"}</span>
                   </div>
                 </motion.div>
