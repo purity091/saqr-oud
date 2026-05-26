@@ -655,7 +655,7 @@ export default function Presentation() {
             </motion.div>
           )}
           
-          {plan.id === 'pervost-compressors-plan' && (
+          {plan.id === 'prevost-distribution-plan' && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -682,7 +682,7 @@ export default function Presentation() {
               </div>
 
               <p className="presentation-problems-intro" style={{ marginBottom: '32px', fontSize: '15px', color: '#374151', lineHeight: '1.7', textAlign: 'center', fontWeight: '500' }}>
-                تستند هذه الأرقام والمؤشرات الاستراتيجية إلى مطابقة إحصائية شاملة مع أحدث التقارير الاقتصادية المعتمدة لعام 2026 الصادرة عن الجهات الرسمية والبحثية الموثوقة (مثل تقارير IMARC Group لسوق الضواغط بالخليج، وتقارير Ken Research لأسواق الإمارات)، لضمان جدارة خطة متجر بيرفوست بالواقع التشغيلي والاستثماري.
+                تستند هذه الأرقام والمؤشرات الاستراتيجية إلى مطابقة إحصائية شاملة مع أحدث التقارير الاقتصادية المعتمدة لعام 2026 الصادرة عن الجهات الرسمية والبحثية الموثوقة (مثل تقارير IMARC Group لسوق أنظمة الهواء بالخليج، وتقارير Ken Research لأسواق الإمارات)، لضمان جدارة خطة التوزيع الحصري لمنتجات Prevost بالواقع التشغيلي والاستثماري.
               </p>
               
               <div className="purity-audit-grid">
@@ -703,12 +703,12 @@ export default function Presentation() {
                   <div className="audit-item-title-wrapper">
                     <span className="audit-dot audit-dot-amber" />
                     <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span>2. مبيعات الضواغط المستهدفة (<span dir="ltr">65M+</span> درهم)</span>
+                      <span>2. حصة التجزئة والورش المستهدفة (<span dir="ltr">65M+</span> درهم)</span>
                       <span className="purity-status-badge badge-amber">محدّث</span>
                     </h4>
                   </div>
                   <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
-                    تُمثّل نسبة 10% إلى 12% من السوق الإماراتي البالغ 624 مليون درهم، وهي الحصة القابلة للاختراق (SOM) عبر قنوات التوزيع والورش وصيانة السيارات. (المصدر: Ken Research لضواغط الإمارات).
+                    تُمثّل نسبة 10% إلى 12% من السوق الإماراتي البالغ 624 مليون درهم، وهي الحصة القابلة للاختراق (SOM) عبر قنوات التوزيع والورش وصيانة السيارات. (المصدر: Ken Research لأنظمة الإمارات).
                   </p>
                 </div>
 
@@ -734,7 +734,7 @@ export default function Presentation() {
                     </h4>
                   </div>
                   <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
-                    يعكس الجودة الفائقة للمنتجات وتوافقها مع معايير الأمان والسلامة وكفاءة الطاقة بتكنولوجيا Prevo S1 المانعة لتسريبات الهواء المهدورة.
+                    يعكس الجودة الفائقة للمنتجات وتوافقها مع معايير الأمان والسلامة وكفاءة الطاقة بتكنولوجيا PrevoS1 المانعة لتسريبات الهواء المهدورة.
                   </p>
                 </div>
               </div>
@@ -745,19 +745,19 @@ export default function Presentation() {
                     <tr>
                       <th style={{ textAlign: 'right' }}>المؤشر الاستراتيجي</th>
                       <th style={{ textAlign: 'center' }}>القيمة الرقمية</th>
-                      <th style={{ textAlign: 'right' }}>التوظيف والاستثمار الاستراتيجي لبيرفوست</th>
+                      <th style={{ textAlign: 'right' }}>التوظيف والاستثمار الاستراتيجي لـ Prevost</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td style={{ fontWeight: '600', color: '#1F2937' }}>سوق المعدات بالخليج</td>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>سوق أنظمة الهواء بالخليج</td>
                       <td className="highlight-val val-blue"><span>450M+ درهم</span></td>
-                      <td>يثبت للمستثمرين أن بيرفوست تعمل في سوق إقليمي ذو ملاءة مالية عالية يطلب الحلول والجودة الأوروبية المعتمدة.</td>
+                      <td>يثبت للمستثمرين أن Prevost تعمل في سوق إقليمي ذو ملاءة مالية عالية يطلب الحلول والجودة الأوروبية المعتمدة.</td>
                     </tr>
                     <tr>
-                      <td style={{ fontWeight: '600', color: '#1F2937' }}>مبيعات الضواغط المستهدفة</td>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>حصة التجزئة والورش المستهدفة</td>
                       <td className="highlight-val val-amber"><span>65M+ درهم</span></td>
-                      <td>يحدد حجم الحصة السوقية (SOM) المستهدفة لبيرفوست في الورش ومصانع التعبئة الخفيفة ومراكز الصيانة.</td>
+                      <td>يحدد حجم الحصة السوقية (SOM) المستهدفة لـ Prevost في الورش والمصانع ومراكز الصيانة بالخليج.</td>
                     </tr>
                     <tr>
                       <td style={{ fontWeight: '600', color: '#1F2937' }}>نمو مبيعات أمازون</td>
@@ -779,10 +779,10 @@ export default function Presentation() {
                   <div className="purity-advice-icon">
                     <Lightbulb className="w-5 h-5" />
                   </div>
-                  <h3>نصيحة استراتيجية لـ "شركة بيرفوست"</h3>
+                  <h3>نصيحة استراتيجية لـ "شركة Prevost الخليج"</h3>
                 </div>
                 <p style={{ fontSize: '13.5px', color: '#374151', lineHeight: '1.6', marginBottom: '18px', fontWeight: '500' }}>
-                  بما أن خطة بيرفوست تعتمد على قنوات المبيعات الإلكترونية المباشرة عبر متجر أمازون لعام 2026، نوصي بالتركيز على محورين تشغيليين رئيسيين لمضاعفة الربحية وتقليل كلفة الهدر:
+                  بما أن خطة Prevost تعتمد على التوزيع الحصري والبيع الرقمي المباشر عبر أمازون B2B لعام 2026، نوصي بالتركيز على محورين تشغيليين رئيسيين لمضاعفة الربحية وتقليل كلفة الهدر:
                 </p>
                 <div className="purity-advice-grid">
                   <div className="advice-sub-card">
@@ -1208,12 +1208,12 @@ export default function Presentation() {
               {/* Group by Quarters dynamically */}
               {[1, 2, 3, 4].map((quarter) => {
                 const quarterMonths = plan.roadmap.filter(m => m.quarter === quarter);
-                const quarterLabel = plan.id === 'pervost-compressors-plan' 
+                const quarterLabel = plan.id === 'prevost-distribution-plan' 
                   ? [
-                      'الربع الأول: تهيئة وإطلاق المنتج وعلاقات الموردين',
-                      'الربع الثاني: إطلاق الإعلانات ومراجعات العملاء بالخليج',
-                      'الربع الثالث: إطلاق الإكسسوارات وسيو خارجي وشحن FBA متقدم',
-                      'الربع الرابع: التوسع لقنوات جديدة وبناء الاستقلالية التجارية'
+                      'الربع الأول: تهيئة متجر الموزع الحصري وإطلاق قنوات B2B',
+                      'الربع الثاني: مراجعات المهندسين وبناء الثقة وإطلاق باقات PPS',
+                      'الربع الثالث: أدوات الهواء ومسدسات النفخ وتوسيع B2B ببرنامج الأعمال',
+                      'الربع الرابع: التوسع اللوجستي بالسعودية والريادة الرقمية بالخليج'
                     ][quarter - 1]
                   : [
                       'الربع الأول: التجهيز الميداني والانطلاق وتثبيت الجودة بدبي',

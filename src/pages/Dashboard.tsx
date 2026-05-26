@@ -20,7 +20,7 @@ export default function Dashboard() {
         <header className="dashboard-header">
           <div className="dashboard-title-group">
             <h1>منصة التخطيط التسويقي الذكي</h1>
-            <p className="dashboard-subtitle">ابدأ بتصفح خطط تسويق احترافية لـ Purity و Pervost وعرضها بأسلوب تفاعلي جذاب.</p>
+            <p className="dashboard-subtitle">ابدأ بتصفح خطط تسويق احترافية لـ Purity و Prevost وعرضها بأسلوب تفاعلي جذاب.</p>
           </div>
           {isDeveloperMode && (
             <Button onClick={handleCreate} size="lg" className="dashboard-create-btn">
@@ -47,15 +47,15 @@ export default function Dashboard() {
               const isPurity = plan.id === 'purity-cleaning-plan';
               const description = isPurity
                 ? 'خطة تسويق رقمي متكاملة لتأسيس العلامة التجارية، والانتشار في مجمعات دبي السكنية، وإطلاق نظام الاشتراكات المجدولة وتطوير تطبيق الجوال.'
-                : 'خطة تجارة إلكترونية سنوية لإطلاق وتنمية متجر ضواغط الهواء الصامتة على أمازون، وإدارة حملات PPC والـ SEO، وإطلاق باقات الملحقات وعلامة تجارية مستقلة.';
+                : 'خطة عمل سنوية لإطلاق وتأسيس التوزيع الحصري لمنتجات Prevost الفرنسية بالخليج عبر قنوات B2B، وبناء شبكات الهواء PPS للورش والمصانع الكبرى، وإدارة التخزين الذكي FBA.';
               
               return (
-                <div key={plan.id} className={`dashboard-plan-card-premium ${isPurity ? 'purity-theme' : 'pervost-theme'}`}>
+                <div key={plan.id} className={`dashboard-plan-card-premium ${isPurity ? 'purity-theme' : 'prevost-theme'}`}>
                   <div className="card-premium-glow"></div>
                   
                   <div className="premium-card-header">
                     <div className="premium-card-badge">
-                      {isPurity ? 'خدمات تنظيف • دبي' : 'تجارة إلكترونية • أمازون'}
+                      {isPurity ? 'خدمات تنظيف • دبي' : 'توزيع حصري • B2B'}
                     </div>
                     <h3 className="premium-card-title">{plan.title}</h3>
                     <p className="premium-card-desc">{description}</p>

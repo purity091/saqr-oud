@@ -4027,7 +4027,7 @@ body {
   border-color: rgba(0, 113, 227, 0.4);
 }
 
-.dashboard-plan-card-premium.pervost-theme:hover {
+.dashboard-plan-card-premium.prevost-theme:hover {
   border-color: rgba(168, 85, 247, 0.4);
 }
 
@@ -4050,7 +4050,7 @@ body {
   background: #0071E3;
 }
 
-.pervost-theme .card-premium-glow {
+.prevost-theme .card-premium-glow {
   background: #A855F7;
 }
 
@@ -4079,7 +4079,7 @@ body {
   direction: rtl;
 }
 
-.pervost-theme .premium-card-badge {
+.prevost-theme .premium-card-badge {
   background: rgba(168, 85, 247, 0.08);
   color: #A855F7;
 }
@@ -4169,13 +4169,13 @@ body {
   transform: translateY(-1px);
 }
 
-.pervost-theme .premium-link-btn.control-link {
+.prevost-theme .premium-link-btn.control-link {
   background: rgba(168, 85, 247, 0.08);
   border: 1px solid rgba(168, 85, 247, 0.15);
   color: #A855F7;
 }
 
-.pervost-theme .premium-link-btn.control-link:hover {
+.prevost-theme .premium-link-btn.control-link:hover {
   background: rgba(168, 85, 247, 0.12);
   border-color: rgba(168, 85, 247, 0.3);
   transform: translateY(-1px);
@@ -4230,12 +4230,12 @@ body {
   transform: translateY(-1px);
 }
 
-.pervost-theme .premium-present-btn {
+.prevost-theme .premium-present-btn {
   background: #A855F7 !important;
   box-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
 }
 
-.pervost-theme .premium-present-btn:hover {
+.prevost-theme .premium-present-btn:hover {
   background: #8b3dc8 !important;
   transform: translateY(-1px);
 }
