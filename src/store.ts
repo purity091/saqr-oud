@@ -1375,7 +1375,8 @@ const oudRiyadhB2bPlan: MarketingPlan = {
     secondary: ['نسبة الموافقة بعد إرسال العينة', 'عدد الـ Leads الواردة من لينكد إن', 'نسبة تجديد عقود التوريد المكتبي']
   }
 };
-\ninterface StoreState {
+
+interface StoreState {
   plans: MarketingPlan[];
   currentPlanId: string | null;
   setCurrentPlanId: (id: string | null) => void;
