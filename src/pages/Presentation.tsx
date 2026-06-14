@@ -487,7 +487,17 @@ export default function Presentation() {
                 <ProblemCard key={i} problem={problem} delay={i * 0.1} />
               ))}
             </div>
-                      {plan.id === 'oud-riyadh-b2c-plan'
+          </Section>
+        )}
+
+        {/* Market Share Target Section - Redesigned */}
+        <Section className="market-redesign-section">
+          <div className="presentation-icon-wrapper presentation-icon-purple">
+            <PieChart className="w-10 h-10" />
+          </div>
+          <h2 className="presentation-section-title">الحصة السوقية المستهدفة</h2>
+          <p className="presentation-section-subtitle">
+            {plan.id === 'oud-riyadh-b2c-plan'
               ? "خطة تسويق رقمية متكاملة لقطاع التجزئة لمتجر قصر العود في الرياض لعام 2026."
               : (plan.marketIntro || "خطة مبيعات وحلول هدايا للشركات والمناسبات الكبرى لمتجر قصر العود بالرياض لعام 2026.")}
           </p>
