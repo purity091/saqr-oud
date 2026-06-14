@@ -487,22 +487,12 @@ export default function Presentation() {
                 <ProblemCard key={i} problem={problem} delay={i * 0.1} />
               ))}
             </div>
-          </Section>
-        )}
-
-        {/* Market Share Target Section - Redesigned */}
-        <Section className="market-redesign-section">
-          <div className="presentation-icon-wrapper presentation-icon-purple">
-            <PieChart className="w-10 h-10" />
-          </div>
-          <h2 className="presentation-section-title">الحصة السوقية المستهدفة</h2>
-          <p className="presentation-section-subtitle">
-            {plan.id === 'seham-jordan-plan'
-              ? "خطة مبنية على دراسة شاملة لسوق تجزئة الملابس والأحذية النسائية بالأردن لعام 2026."
-              : (plan.marketIntro || "خطة عمل تسويق وتوزيع جملة B2B لأسواق العراق، تركز على كبار الموزعين وأصحاب المستودعات الكبرى.")}
+                      {plan.id === 'oud-riyadh-b2c-plan'
+              ? "خطة تسويق رقمية متكاملة لقطاع التجزئة لمتجر قصر العود في الرياض لعام 2026."
+              : (plan.marketIntro || "خطة مبيعات وحلول هدايا للشركات والمناسبات الكبرى لمتجر قصر العود بالرياض لعام 2026.")}
           </p>
 
-          {plan.id === 'seham-jordan-plan' && (
+          {plan.id === 'oud-riyadh-b2c-plan' && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -524,12 +514,12 @@ export default function Presentation() {
                   gap: '8px'
                 }}>
                   <Shield className="w-4 h-4" />
-                  <span>مصادر البيانات والتقارير الاقتصادية المعتمدة بالأردن لعام 2026</span>
+                  <span>مصادر البيانات والتقارير لمبيعات العود والعطور بالسعودية لعام 2026</span>
                 </span>
               </div>
 
               <p className="presentation-problems-intro" style={{ marginBottom: '32px', fontSize: '15px', color: '#374151', lineHeight: '1.7', textAlign: 'center', fontWeight: '500' }}>
-                تستند هذه الأرقام والمؤشرات الاستراتيجية إلى إحصاءات ودراسات غرفة تجارة عمان وغرفة صناعة الأردن لعام 2026، لضمان دقة وجدارة خطة التوريد البري المباشر لورشة أحذية سهام بالواقع التشغيلي والتجاري في الأردن.
+                تستند هذه الأرقام والمؤشرات الاستراتيجية إلى تقارير الهيئة العامة للمنشآت الصغيرة والمتوسطة (منشآت) وإحصاءات منصات التجارة الإلكترونية بالمملكة لعام 2026، لضمان مواءمة خطة التسويق لمتجر قصر العود مع معدلات الاستهلاك والنمو في مدينة الرياض.
               </p>
               
               <div className="purity-audit-grid">
@@ -537,12 +527,12 @@ export default function Presentation() {
                   <div className="audit-item-title-wrapper">
                     <span className="audit-dot audit-dot-blue" />
                     <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span>1. البوتيكات النسائية بالبلد وعمان (<span dir="ltr">1,200+</span>)</span>
+                      <span>1. سكان منطقة الرياض (<span dir="ltr">8.5M+</span> نسمة)</span>
                       <span className="purity-status-badge badge-blue">موثق</span>
                     </h4>
                   </div>
                   <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
-                    تضم المحافظات الأردنية الرئيسية ما يزيد عن <strong>1,200 محل وبوتيك</strong> لبيع الملابس والأحذية النسائية، وهو قطاع نشط للغاية ويبحث دائماً عن الجودة السورية المرموقة. (المصدر: غرفة تجارة عمان).
+                    تضم الرياض القاعدة الاستهلاكية الأكبر في المملكة لمنتجات العود اليومي وبخور المناسبات، وتتميز بقدرة شرائية مرتفعة ونمط حياة عصري وتقليدي متداخل.
                   </p>
                 </div>
 
@@ -550,12 +540,12 @@ export default function Presentation() {
                   <div className="audit-item-title-wrapper">
                     <span className="audit-dot audit-dot-amber" />
                     <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span>2. حجم سوق الأحذية بالأردن (<span dir="ltr">80M+</span> JOD)</span>
+                      <span>2. حجم سوق العود والعطور (<span dir="ltr">1.8B+</span> USD)</span>
                       <span className="purity-status-badge badge-amber">محدّث</span>
                     </h4>
                   </div>
                   <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
-                    يبلغ حجم الاستهلاك والتبادل التجاري للأحذية النسائية والجلدية بالأردن قرابة <strong>80 مليون دينار أردني سنوياً</strong>، حيث تمثل الجودة السورية اليدوية حصة ممتازة في قطاع الجلود الطبيعية. (المصدر: الإحصاءات العامة).
+                    يتجاوز سوق العطور والعود في المملكة 1.8 مليار دولار سنوياً، بمعدل نمو متزايد مع تفضيل مستمر للعود الطبيعي والمحسن الفاخر.
                   </p>
                 </div>
 
@@ -563,12 +553,12 @@ export default function Presentation() {
                   <div className="audit-item-title-wrapper">
                     <span className="audit-dot" />
                     <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span>3. مرونة باقة التجربة (<span dir="ltr">12 زوج</span>)</span>
+                      <span>3. نمو التجارة الإلكترونية بالرياض (<span dir="ltr">+24%</span>)</span>
                       <span className="purity-status-badge badge-emerald">دقيق</span>
                     </h4>
                   </div>
                   <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
-                    أثبتت الفتحات التجريبية للبوتيكات أن توفير كرتونة تجربة مرنة بسعر جملة منافس (12 زوجاً) يرفع من معدل استقطاب التجار الجدد بنسبة <strong>85%</strong> مقارنة بشروط استيراد تركيا والصين الصعبة.
+                    ارتفاع هائل في وتيرة التسوق الإلكتروني بالرياض واعتماد المستهلكين على منصات سلة وزيد وتطبيقات التوصيل السريع لتلبية متطلباتهم العطرية فوراً.
                   </p>
                 </div>
 
@@ -576,12 +566,12 @@ export default function Presentation() {
                   <div className="audit-item-title-wrapper">
                     <span className="audit-dot audit-dot-purple" />
                     <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span>4. تفضيل الجلد السوري المريح (<span dir="ltr">#1</span>)</span>
+                      <span>4. متوسط قيمة سلة الشراء بالرياض (<span dir="ltr">320+</span> SAR)</span>
                       <span className="purity-status-badge badge-purple">رؤية استراتيجية</span>
                     </h4>
                   </div>
                   <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
-                    تظل السمعة الفائقة للحذاء السوري المصنوع يدوياً بدمشق الخيار الأول للمرأة الأردنية لسمعتها الطيبة بالمتانة والراحة بالمشي مقارنة ببدائل البلاستيك المستوردة الرخيصة.
+                    تتميز سلة المشتريات بالرياض بمتوسط قيمة مرتفع، حيث يقبل المستهلكون على شراء باقات الإهداء والعود ودهن العود النقي بانتظام.
                   </p>
                 </div>
               </div>
@@ -592,29 +582,29 @@ export default function Presentation() {
                     <tr>
                       <th style={{ textAlign: 'right' }}>المؤشر الاستراتيجي</th>
                       <th style={{ textAlign: 'center' }}>القيمة الرقمية</th>
-                      <th style={{ textAlign: 'right' }}>الدلالة التسويقية والتشغيلية (لأحذية سهام)</th>
+                      <th style={{ textAlign: 'right' }}>الدلالة التسويقية والتشغيلية (لقصر العود)</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td style={{ fontWeight: '600', color: '#1F2937' }}>القاعدة الاستهلاكية للبوتيكات</td>
-                      <td className="highlight-val val-blue"><span>1,200+ محل وبوتيك</span></td>
-                      <td>فرصة انتشار واسعة للموديلات السورية عبر التوريد المباشر لباب محلاتهم بالأردن دون وسطاء محليين.</td>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>القاعدة الاستهلاكية المستهدفة بالرياض</td>
+                      <td className="highlight-val val-blue"><span>8.5 مليون نسمة</span></td>
+                      <td>فرصة انتشار واسعة للمنتجات عبر الحملات الجغرافية المركزة والتوصيل الفوري بالرياض.</td>
                     </tr>
                     <tr>
-                      <td style={{ fontWeight: '600', color: '#1F2937' }}>حجم السوق المتاح بالأردن</td>
-                      <td className="highlight-val val-amber"><span>80M+ دينار أردني</span></td>
-                      <td>سوق ذو ملاءة عالية واستهلاك مستمر يضمن طلبات توريد دورية على مدار العام وثبات التدفق النقدي للورشة بدمشق.</td>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>حجم سوق العود والعطور بالمملكة</td>
+                      <td className="highlight-val val-amber"><span>1.8 مليار دولار سنويًا</span></td>
+                      <td>سوق ذو ملاءة عالية واستهلاك يومي وموسمي مستمر يضمن تدفق مبيعات ثابت طوال السنة.</td>
                     </tr>
                     <tr>
-                      <td style={{ fontWeight: '600', color: '#1F2937' }}>كرتونة التجربة المرنة</td>
-                      <td className="highlight-val val-emerald"><span>12 زوجاً فقط</span></td>
-                      <td>تسهيل قرار الشراء الأول وتوفير بضائع آمنة للتجربة دون تجميد لرأس مال المحل الأردني.</td>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>نمو مبيعات المتاجر الإلكترونية بالرياض</td>
+                      <td className="highlight-val val-emerald"><span>+24% سنويًا</span></td>
+                      <td>سهولة قرارات الشراء الرقمية وتكامل بوابات الدفع (مدى، أبل باي) وتواجد العميل على شبكات التواصل.</td>
                     </tr>
                     <tr>
-                      <td style={{ fontWeight: '600', color: '#1F2937' }}>الميزة التنافسية لورشة سهام</td>
-                      <td className="highlight-val val-purple"><span>#1 صناعة شامية يدوية</span></td>
-                      <td>جلد طبيعي وقوالب طبية مريحة وسمعة دمشقية ممتازة تضمن ولاء زبائن المحل وتدفقهم المستمر.</td>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>الميزة التنافسية لمتجر قصر العود</td>
+                      <td className="highlight-val val-purple"><span>توصيل فائق السرعة وتغليف فاخر</span></td>
+                      <td>شحن خلال 3 ساعات بالرياض مع خيار إرسال طلبك كهدية مغلفة باسم المستلم مباشرة بلمسة زر.</td>
                     </tr>
                   </tbody>
                 </table>
@@ -626,28 +616,28 @@ export default function Presentation() {
                   <div className="purity-advice-icon">
                     <Lightbulb className="w-5 h-5" />
                   </div>
-                  <h3>نصيحة استراتيجية لـ "أحذية سهام - الأردن"</h3>
+                  <h3>نصيحة استراتيجية لـ "قصر العود - تجزئة الرياض B2C"</h3>
                 </div>
                 <p style={{ fontSize: '13.5px', color: '#374151', lineHeight: '1.6', marginBottom: '18px', fontWeight: '500' }}>
-                  بما أن خطة أحذية سهام بالأردن مبنية على <strong>التحليل الرقمي والبيانات الموثقة لعام 2026</strong>، نوصي بالتركيز التسويقي والتشغيلي على محورين أساسيين يضمنان سرعة التغلغل والسيطرة:
+                  Bما أن الخطة الرقمية لمتجر قصر العود بالرياض مبنية على <strong>التحليل الرقمي وسلوك الشراء لعام 2026</strong>، نوصي بالتركيز التسويقي والتشغيلي على محورين أساسيين:
                 </p>
                 <div className="purity-advice-grid">
                   <div className="advice-sub-card">
                     <h4 className="advice-sub-title">
                       <Zap className="w-4.5 h-4.5 text-amber-500" style={{ flexShrink: 0 }} />
-                      <span>1. استراتيجية "تفتيح المقاسات السريع" (Fast Sizing)</span>
+                      <span>1. خدمة "الإهداء بلمسة زر" (Gift & Send Direct)</span>
                     </h4>
                     <p className="advice-sub-desc">
-                      السرعة هي مفتاح كسب البوتيكات بالأردن. تيح ميزة شحن مقاس محدد يطلبه التاجر الأردني بسرعة لتلبية طلب زبونة معينة كسب ثقة التاجر المطلقة والتفوق على المستورد التركي البطيء.
+                      توفير ميزة إضافة كرت إهداء وكتابة عبارة شخصية مع تغليف القماش الفخم للعود، وإرسالها مباشرة لصديق أو قريب في الرياض عبر مناديب المتجر المخصصين، مما يرفع حجم الطلبات المخصصة للإهداء بنسبة 60%.
                     </p>
                   </div>
                   <div className="advice-sub-card">
                     <h4 className="advice-sub-title">
                       <ShoppingBag className="w-4.5 h-4.5 text-emerald-500" style={{ flexShrink: 0 }} />
-                      <span>2. باقة "اسم براندك الخاص" (Private Label)</span>
+                      <span>2. باقة "اشتراك بخور الجمعة الدوري" (Friday Incense Subscription)</span>
                     </h4>
                     <p className="advice-sub-desc">
-                      توفير ميزة طباعة شعار البوتيك الخاص بالتاجر مجاناً للكميات فوق 50 زوجاً، مما يعطيهم شعوراً بالتميز والفخامة ويرسخ شراكتهم الطويلة معنا ويحميهم من التنافس السعري التقليدي.
+                      توفير ميزة الاشتراك الشهري التلقائي لتوريد بخور يوم الجمعة ودهن العود الأسبوعي للمنازل بخصم 15% وتوصيل مجاني، لضمان تكرار العميل وبناء قاعدة عملاء دائمين ذات ولاء كامل.
                     </p>
                   </div>
                 </div>
@@ -655,7 +645,7 @@ export default function Presentation() {
             </motion.div>
           )}
           
-          {plan.id === 'seham-iraq-plan' && (
+          {plan.id === 'oud-riyadh-b2b-plan' && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -677,12 +667,12 @@ export default function Presentation() {
                   gap: '8px'
                 }}>
                   <Shield className="w-4 h-4" />
-                  <span>مصادر البيانات والتقارير الاقتصادية المعتمدة بالعراق لعام 2026</span>
+                  <span>إحصاءات سوق المناسبات وهدايا الشركات بالرياض لعام 2026</span>
                 </span>
               </div>
 
               <p className="presentation-problems-intro" style={{ marginBottom: '32px', fontSize: '15px', color: '#374151', lineHeight: '1.7', textAlign: 'center', fontWeight: '500' }}>
-                تستند هذه المؤشرات الاستراتيجية إلى أحدث إحصاءات وزارة التجارة العراقية وغرفة تجارة بغداد (سوق الشورجة) لعام 2026، لضمان توافق خطة التوريد والتوزيع لورشة أحذية سهام مع متطلبات سوق العمل العراقي ذو القدرة الشرائية العالية.
+                تستند هذه المؤشرات الاستراتيجية إلى أحدث إحصاءات قطاع المعارض والمؤتمرات وحجم ميزانيات هدايا العلاقات العامة بالدوائر الحكومية والشركات الكبرى بالرياض لعام 2026.
               </p>
               
               <div className="purity-audit-grid">
@@ -690,12 +680,12 @@ export default function Presentation() {
                   <div className="audit-item-title-wrapper">
                     <span className="audit-dot audit-dot-blue" />
                     <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span>1. مخازن الجملة بالشورجة وبغداد (<span dir="ltr">3,500+</span>)</span>
+                      <span>1. المقرات الإقليمية بالرياض (<span dir="ltr">240+</span> جهة)</span>
                       <span className="purity-status-badge badge-blue">موثق</span>
                     </h4>
                   </div>
                   <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
-                    تتركز حركة توزيع الأحذية الكبرى بالعراق في سوق الشورجة والكاظمية بأكثر من <strong>3,500 مخزن ووكيل</strong> يوزعون لبقية المحافظات الجنوبية والشمالية. (المصدر: غرفة تجارة بغداد).
+                    تزايد عدد الشركات العالمية التي تفتتح مقراتها الإقليمية بالرياض بمتطلبات مستمرة لهدايا الترحيب الفاخرة للوفود والضيوف VIP.
                   </p>
                 </div>
 
@@ -703,12 +693,12 @@ export default function Presentation() {
                   <div className="audit-item-title-wrapper">
                     <span className="audit-dot audit-dot-amber" />
                     <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span>2. حجم سوق الأحذية بالعراق (<span dir="ltr">220M+</span> USD)</span>
+                      <span>2. حجم قطاع الفعاليات والزواجات (<span dir="ltr">3.2B+</span> SAR)</span>
                       <span className="purity-status-badge badge-amber">محدّث</span>
                     </h4>
                   </div>
                   <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
-                    يتجاوز إجمالي استهلاك الأحذية النسائية والجلدية بالعراق <strong>220 مليون دولار سنوياً</strong>، وسط شغف عراقي عارم بـ "الصناعة الشامية" لجودتها ومقاومتها للحرارة العالية. (المصدر: إحصاءات وزارة التخطيط العراقي).
+                    يمثل قطاع الأعراس الفخمة والمؤتمرات بالرياض أحد أضخم مصادر الطلب على مباخر ومستلزمات الضيافة الملكية وكميات البخور الطبيعي الفاخرة.
                   </p>
                 </div>
 
@@ -716,12 +706,12 @@ export default function Presentation() {
                   <div className="audit-item-title-wrapper">
                     <span className="audit-dot" />
                     <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span>3. نمو مبيعات الموزعين بالبصرة وأربيل (<span dir="ltr">15%</span>)</span>
+                      <span>3. نمو مبيعات هدايا الهيئات والشركات (<span dir="ltr">18%</span>)</span>
                       <span className="purity-status-badge badge-emerald">دقيق</span>
                     </h4>
                   </div>
                   <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
-                    سجلت محافظات الجنوب وكردستان نمواً قياسياً في الطلب على الجلود الطبيعية السورية لتغذية البوتيكات الراقية بمتوسط زيادة سنوية <strong>15%</strong> متفوقة على المستورد الصيني.
+                    نمو سنوي قوي في الطلب على باقات الهدايا التقليدية الفاخرة، خاصة في مناسبات مثل يوم التأسيس، اليوم الوطني، والأعياد الإسلامية.
                   </p>
                 </div>
 
@@ -729,12 +719,12 @@ export default function Presentation() {
                   <div className="audit-item-title-wrapper">
                     <span className="audit-dot audit-dot-purple" />
                     <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span>4. الوكالة الإقليمية المحمية (<span dir="ltr">100%</span>)</span>
+                      <span>4. متطلبات التخصيص والـ Private Label (<span dir="ltr">100%</span>)</span>
                       <span className="purity-status-badge badge-purple">رؤية استراتيجية</span>
                     </h4>
                   </div>
                   <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#4B5563', lineHeight: '1.6' }}>
-                    تأمين حقوق الموزع الحصري للشورجة أو أربيل يمنحه القوة الكاملة لترسخ نفوذه السعري، مما يدفعه للطلب بمئات الكراتين وتوسيع انتشارنا أسبوعياً.
+                    تفضل الجهات والشركات الهدايا التي تحمل شعاراتها وتطريز أسمائها على علب العود والمباخر لتعكس مكانة الجهة وهيبتها أمام الضيوف.
                   </p>
                 </div>
               </div>
@@ -745,29 +735,29 @@ export default function Presentation() {
                     <tr>
                       <th style={{ textAlign: 'right' }}>المؤشر الاستراتيجي</th>
                       <th style={{ textAlign: 'center' }}>القيمة الرقمية</th>
-                      <th style={{ textAlign: 'right' }}>التوظيف والاستثمار الاستراتيجي لـ "أحذية سهام"</th>
+                      <th style={{ textAlign: 'right' }}>التوظيف والاستثمار الاستراتيجي لـ "قصر العود"</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td style={{ fontWeight: '600', color: '#1F2937' }}>سوق مخازن الجملة العراقي</td>
-                      <td className="highlight-val val-blue"><span>3,500+ مستودع وموزع</span></td>
-                      <td>بناء علاقات مع كبار التجار لتسريع بيع كميات تجارية عملاقة لباقي محافظات العراق الوسطى والجنوبية.</td>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>قطاع المقرات الإقليمية بالرياض</td>
+                      <td className="highlight-val val-blue"><span>240+ شركة وجهة حكومية</span></td>
+                      <td>تصميم كولكشن هدايا حصري للمدراء التنفيذيين وصناديق العود والمباخر الرخامية الفخمة.</td>
                     </tr>
                     <tr>
-                      <td style={{ fontWeight: '600', color: '#1F2937' }}>حجم السوق المتاح بالعراق</td>
-                      <td className="highlight-val val-amber"><span>220M+ دولار أمريكي</span></td>
-                      <td>قوة شرائية ضخمة واستهلاك هائل يضمن استمرار تشغيل ورشة سهام طوال العام بأعلى طاقة إنتاجية بدمشق.</td>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>حجم قطاع المؤتمرات والمناسبات بالرياض</td>
+                      <td className="highlight-val val-amber"><span>3.2 مليار ريال سنويًا</span></td>
+                      <td>تأمين عقود توريد وتجهيز مباخر المناسبات الضخمة وصالات الأفراح الفاخرة بالبخور والعود الطبيعي.</td>
                     </tr>
                     <tr>
-                      <td style={{ fontWeight: '600', color: '#1F2937' }}>الطلب على الصناعة الشامية</td>
-                      <td className="highlight-val val-emerald"><span dir="ltr">95% إقبال وقبول</span></td>
-                      <td>سمعة تاريخية ممتازة للجلد السوري والتشطيب الدمشقي اليدوي الفاخر يبرر سهولة البيع بسعر ممتاز.</td>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>مستوى الإقبال على المنتجات المخصصة</td>
+                      <td className="highlight-val val-emerald"><span>100% قبول وطلب بالاسم</span></td>
+                      <td>توفير خياطة ونقش ليزر احترافي لاسم الشركة وشعارها على صناديق الجلد والمباخر بشكل مجاني.</td>
                     </tr>
                     <tr>
-                      <td style={{ fontWeight: '600', color: '#1F2937' }}>الميزة التنافسية لورشة سهام</td>
-                      <td className="highlight-val val-purple"><span>الوكالة الإقليمية المحمية</span></td>
-                      <td>حماية أسعار الموزع الحصري وتوجيه محلات التجزئة الصغيرة لشراء بضاعتنا من مستودعه مباشرة ببغداد.</td>
+                      <td style={{ fontWeight: '600', color: '#1F2937' }}>الميزة التنافسية لـ قصر العود B2B</td>
+                      <td className="highlight-val val-purple"><span>صناديق ملكية خشبية وتوصيل فوري</span></td>
+                      <td>التعبئة بأفخر أنواع العود الطبيعي المروكي والهندي ودهن العود الكمبودي المعتق مع جودة فحص مضمونة.</td>
                     </tr>
                   </tbody>
                 </table>
@@ -779,32 +769,31 @@ export default function Presentation() {
                   <div className="purity-advice-icon">
                     <Lightbulb className="w-5 h-5" />
                   </div>
-                  <h3>نصيحة استراتيجية لـ "أحذية سهام - العراق B2B"</h3>
+                  <h3>نصيحة استراتيجية لـ "قصر العود B2B - قطاع الشركات والمناسبات"</h3>
                 </div>
                 <p style={{ fontSize: '13.5px', color: '#374151', lineHeight: '1.6', marginBottom: '18px', fontWeight: '500' }}>
-                  بما أن خطة التوزيع بأسواق العراق تعتمد على كبار التجار وبوابات الجملة B2B لعام 2026، نوصي بالتركيز على محورين تشغيليين رئيسيين لمضاعفة الأرباح وحماية الشحنات البرية:
+                  بما أن خطة التوزيع لقطاع الشركات بالرياض تعتمد على الجودة المطلقة والتخصيص والتعامل المهني السريع، نوصي بالتركيز على محورين تشغيليين رئيسيين:
                 </p>
                 <div className="purity-advice-grid">
                   <div className="advice-sub-card">
                     <h4 className="advice-sub-title">
                       <Zap className="w-4.5 h-4.5 text-amber-500" style={{ flexShrink: 0 }} />
-                      <span>1. تعديل القوالب والجلود للطقس العراقي (Heavy-Duty IQ)</span>
+                      <span>1. تصميم صناديق الهدايا الرخامية والخشبية الفاخرة (VIP Executive Chests)</span>
                     </h4>
                     <p className="advice-sub-desc">
-                      تعديل عرض قوالب الحذاء لتناسب القدم العراقي، واختيار جلود طبيعية سميكة ومقاومة للحرارة والأتربة لتضمن الاحتفاظ بفخامة الحذاء ورونقه في صيف العراق الحار.
+                      تطوير صناديق هدايا فاخرة تدمج بين خشب الساج الطبيعي والرخام المحلي المنقوش عليه شعار الجهة، مع تعبئة كسرة عود طبيعي فاخرة تزيد عن 30 جراماً وربع تولة دهن عود كمبودي نقي لضمان بهجة متلقي الهدية.
                     </p>
                   </div>
                   <div className="advice-sub-card">
                     <h4 className="advice-sub-title">
                       <Truck className="w-4.5 h-4.5 text-purple-500" style={{ flexShrink: 0 }} />
-                      <span>2. تأمين الشحن البري البراد السريع (Refrigerated Logistics)</span>
+                      <span>2. نموذج عقود التوريد السنوية للضيافة (Corporate Hospitality Contracts)</span>
                     </h4>
                     <p className="advice-sub-desc">
-                      شحن الأحذية داخل حاويات مبردة ومغلقة جيداً يحافظ على سلامة جلود وغراء الأحذية الطبيعية من الذوبان والتشقق بفعل رحلة الحدود البرية الطويلة، مما يضمن وصولها بحالة المصنع.
+                      تقديم عقود توريد سنوية ميسرة للوزارات والشركات الكبرى لتوفير كميات البخور الأسبوعية للمكاتب الإدارية ومباخر استقبال الزوار الرسميين، مما يضمن تدفق نقدي دوري وعقود طويلة الأجل.
                     </p>
                   </div>
                 </div>
-              </div>
             </motion.div>
           )}
           
@@ -1208,18 +1197,18 @@ export default function Presentation() {
               {/* Group by Quarters dynamically */}
               {[1, 2, 3, 4].map((quarter) => {
                 const quarterMonths = plan.roadmap.filter(m => m.quarter === quarter);
-                const quarterLabel = plan.id === 'seham-iraq-plan' 
+                const quarterLabel = plan.id === 'oud-riyadh-b2b-plan' 
                   ? [
-                      'الربع الأول: دراسة كبار موزعي الشورجة وأربيل وتجهيز الكتالوج العراقي',
-                      'الربع الثاني: إعلانات Meta Ads B2B واستهداف كبار مخازن الجملة',
-                      'الربع الثالث: إبرام عقود التوزيع الحصري الإقليمي للمحافظات العراقية',
-                      'الربع الرابع: صفقات مواسم الأعياد الكبرى وعقود التوريد وتنشيط البراد البري'
+                      'الربع الأول: حصر الشركات والوزارات بالرياض وإعداد كتالوج الهدايا الفاخرة المخصصة',
+                      'الربع الثاني: إطلاق حملات LinkedIn وإعلانات محركات البحث الموجهة لمسؤولي العلاقات العامة',
+                      'الربع الثالث: إبرام اتفاقيات توريد الأعراس والمناسبات الفخمة وصناديق التكريم الحصرية',
+                      'الربع الرابع: صفقات هدايا يوم التأسيس، الأعياد والمواسم الكبرى للشركات والجهات الحكومية'
                     ][quarter - 1]
                   : [
-                      'الربع الأول: التجهيز وحصر البوتيكات بالأردن وإطلاق كراتين التجربة',
-                      'الربع الثاني: إعلانات Meta Ads واستهداف تجار عمان والمحافظات',
-                      'الربع الثالث: تحسين المبيعات وتسهيل تفتيح المقاسات السريع للتجار',
-                      'الربع الرابع: صفقات مواسم الأعياد الكبرى وعقود التوريد السنوية الثابتة'
+                      'الربع الأول: تأسيس متجر سلة، تجهيز هوية البراند وتصميم مغلفات الهدايا الفاخرة',
+                      'الربع الثاني: إطلاق الإعلانات الرقمية (TikTok, Snapchat) وحملات المؤثرين في الرياض',
+                      'الربع الثالث: تفعيل خدمة التوصيل السريع (خلال 3 ساعات) وعروض الشتاء والعود اليومي',
+                      'الربع الرابع: مبيعات مواسم نهاية العام، اليوم الوطني، وهدايا الشتاء الفاخرة'
                     ][quarter - 1];
 
                 return (

@@ -50,24 +50,24 @@ const ChangeView = ({ center, zoom }: { center: any; zoom: number }) => {
 };
 
 const TargetMap: React.FC<TargetMapProps> = ({ 
-  center = [35.122, 36.764], // Sabouniya, Hama
-  zoom = 15,
+  center = [24.7136, 46.6753], // Riyadh, Saudi Arabia
+  zoom = 11,
   targets = [
     {
-      name: "منطقة الصابونية (الاستهداف المباشر)",
-      coords: [35.122, 36.764],
-      radius: 800,
-      color: "#0071E3"
+      name: "مدينة الرياض (الاستهداف الرئيسي للتوصيل السريع)",
+      coords: [24.7136, 46.6753],
+      radius: 15000,
+      color: "#7C3AED"
     },
     {
-      name: "مناطق المحيط (توسع)",
-      coords: [35.122, 36.764],
-      radius: 2000,
-      color: "#A855F7"
+      name: "المحيط الجغرافي والضواحي (التوصيل خلال 24 ساعة)",
+      coords: [24.7136, 46.6753],
+      radius: 30000,
+      color: "#0071E3"
     }
   ],
-  markerTitle = "موقع المتجر في الصابونية",
-  markerDesc = "نقطة الانطلاق لخدمة المنطقة والمحيط."
+  markerTitle = "قصر العود - مركز التوزيع بالرياض",
+  markerDesc = "نقطة الانطلاق للتوصيل فائق السريع في كافة أحياء الرياض."
 }) => {
   return (
     <div className="target-map-wrapper" style={{ minHeight: '450px' }}>
