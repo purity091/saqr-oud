@@ -12,7 +12,7 @@ import {
   PackageSearch, Megaphone, AlertTriangle, EyeOff, ShoppingCart,
   UserMinus, HeartCrack, Skull, Crown, Sparkles, ThumbsUp, Rocket,
   Baby, FileWarning, CircleHelp, Ban, PieChart, Percent, Flame,
-  TrendingUpDown, ChevronRight, Check, Leaf, Calendar
+  TrendingUpDown, ChevronRight, Check, Leaf, Calendar, Home, List, X
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import '../styles.css';
@@ -34,9 +34,10 @@ const iconMap: Record<string, any> = {
 iconMap['Building2'] = Building2;
 iconMap['ShoppingBag'] = ShoppingBag;
 
-const Section = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => {
+const Section = ({ children, className = '', id }: { children: React.ReactNode; className?: string; id?: string }) => {
   return (
     <motion.section
+      id={id}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-20%" }}
@@ -281,6 +282,81 @@ const renderFormattedValue = (val: string) => {
   return <span>{val}</span>;
 };
 
+
+
+const FloatingTOC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
+
+  const sections = [
+    { id: 'hero', label: 'الرئيسية', icon: Home },
+    { id: 'problems', label: 'التحديات', icon: Flame },
+    { id: 'no-marketing', label: 'مخاطر غياب التسويق', icon: AlertTriangle },
+    { id: 'market-analysis', label: 'الحصة السوقية', icon: PieChart },
+    { id: 'solution', label: 'الحل المقترح', icon: Lightbulb },
+    { id: 'audience', label: 'شرائح العملاء', icon: Users },
+    { id: 'value-pillars', label: 'ركائز القيمة', icon: Star },
+    { id: 'channels', label: 'القنوات التسويقية', icon: Share2 },
+    { id: 'strategy', label: 'خطة التنفيذ', icon: Target },
+    { id: 'kpis', label: 'مؤشرات النجاح', icon: BarChart3 },
+    { id: 'roadmap', label: 'خارطة الطريق', icon: Calendar },
+    { id: 'packages', label: 'الباقات', icon: ShoppingBag },
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      let current = 'hero';
+      for (const section of sections) {
+        const element = document.getElementById(section.id);
+        if (element && window.scrollY >= (element.offsetTop - 300)) {
+          current = section.id;
+        }
+      }
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollTo = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 50,
+        behavior: 'smooth'
+      });
+      setIsOpen(false);
+    }
+  };
+
+  return (
+    <div className="floating-toc-container print-hide-nav">
+      {isOpen && (
+        <div className="floating-toc-menu">
+          {sections.map((section) => (
+            <button
+              key={section.id}
+              onClick={() => scrollTo(section.id)}
+              className={`floating-toc-item ${activeSection === section.id ? 'active' : ''}`}
+            >
+              <section.icon className="w-4 h-4" />
+              <span>{section.label}</span>
+            </button>
+          ))}
+        </div>
+      )}
+      <button 
+        className={`floating-toc-btn ${isOpen ? 'open' : ''}`}
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="جدول المحتويات"
+      >
+        {isOpen ? <X className="w-6 h-6" /> : <List className="w-6 h-6" />}
+      </button>
+    </div>
+  );
+};
+
 export default function Presentation() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -329,17 +405,13 @@ export default function Presentation() {
             العودة للرئيسية
           </Button>
         )}
-        <div className="flex gap-4">
-          <Button variant="outline" className="presentation-export-btn" onClick={() => window.print()}>
-            <Download className="w-4 h-4" />
-            تصدير PDF
-          </Button>
-        </div>
+        
+
       </nav>
 
       <main className="presentation-main">
         {/* Title Section */}
-        <Section className="presentation-title-section">
+        <Section className="presentation-title-section" id="hero">
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -419,7 +491,7 @@ export default function Presentation() {
         </Section>
 
         {/* Problem Section - Step 1: Pain Awareness */}
-        <Section>
+        <Section id="problems">
           <div className="presentation-icon-wrapper presentation-icon-red">
             <Flame className="w-10 h-10" />
           </div>
@@ -474,7 +546,7 @@ export default function Presentation() {
 
         {/* No Marketing Problems Section - Step 2: Deepen the Pain */}
         {plan.noMarketingProblems && plan.noMarketingProblems.problems.length > 0 && (
-          <Section className="presentation-no-marketing-section">
+          <Section className="presentation-no-marketing-section" id="no-marketing">
             <div className="presentation-icon-wrapper presentation-icon-red">
               <AlertTriangle className="w-10 h-10" />
             </div>
@@ -491,7 +563,7 @@ export default function Presentation() {
         )}
 
         {/* Market Share Target Section - Redesigned */}
-        <Section className="market-redesign-section">
+        <Section className="market-redesign-section" id="market-analysis">
           <div className="presentation-icon-wrapper presentation-icon-purple">
             <PieChart className="w-10 h-10" />
           </div>
@@ -955,7 +1027,7 @@ export default function Presentation() {
 
         {/* Value Proposition Section - Step 5: The Solution */}
         {(plan.valueProposition.statement || plan.valueProposition.keyBenefits.length > 0) && (
-          <Section>
+          <Section id="solution">
             <div className="presentation-icon-wrapper presentation-icon-yellow">
               <Lightbulb className="w-10 h-10" />
             </div>
@@ -994,7 +1066,7 @@ export default function Presentation() {
 
         {/* Audience Details Section - Step 6: Who We're Targeting */}
         {plan.audienceDetails && plan.audienceDetails.personas.length > 0 && (
-          <Section className="presentation-audience-details-section">
+          <Section className="presentation-audience-details-section" id="audience">
             <div className="presentation-icon-wrapper presentation-icon-purple">
               <Users className="w-10 h-10" />
             </div>
@@ -1011,7 +1083,7 @@ export default function Presentation() {
 
         {/* Value Proposition Details Section - Step 7: Why Choose Us */}
         {plan.valuePropositionDetails && plan.valuePropositionDetails.pillars.length > 0 && (
-          <Section className="presentation-value-proposition-section">
+          <Section className="presentation-value-proposition-section" id="value-pillars">
             <div className="presentation-icon-wrapper presentation-icon-blue">
               <Star className="w-10 h-10" />
             </div>
@@ -1028,7 +1100,7 @@ export default function Presentation() {
 
         {/* Channels Section - Step 8: How We'll Reach Them */}
         {(plan.channels.primary.length > 0 || plan.channels.secondary.length > 0) && (
-          <Section>
+          <Section id="channels">
             <div className="presentation-icon-wrapper presentation-icon-green">
               <Share2 className="w-10 h-10" />
             </div>
@@ -1067,7 +1139,7 @@ export default function Presentation() {
 
         {/* Strategy Section - Step 9: The Execution Plan */}
         {(plan.strategy.awareness || plan.strategy.consideration || plan.strategy.conversion || plan.strategy.retention) && (
-          <Section>
+          <Section id="strategy">
             <h2 className="presentation-section-title">خطة التنفيذ (Funnel)</h2>
 
             <div className="presentation-strategy-container">
@@ -1100,7 +1172,7 @@ export default function Presentation() {
         )}
 
         {/* KPIs Section - Step 10: Success Metrics */}
-        <Section>
+        <Section id="kpis">
           <div className="presentation-icon-wrapper presentation-icon-emerald">
             <BarChart3 className="w-10 h-10" />
           </div>
@@ -1192,7 +1264,7 @@ export default function Presentation() {
 
         {/* Dynamic 1-Year Roadmap Section */}
         {plan.roadmap && plan.roadmap.length > 0 && (
-          <Section className="roadmap-redesign-section">
+          <Section className="roadmap-redesign-section" id="roadmap">
             <div className="presentation-icon-wrapper presentation-icon-blue">
               <Calendar className="w-10 h-10" />
             </div>
@@ -1309,7 +1381,7 @@ export default function Presentation() {
 
         {/* Marketing Packages Section - Step 11: CLOSE THE SALE */}
         {plan.marketingPackages && plan.marketingPackages.packages.length > 0 && (
-          <Section className="presentation-packages-section presentation-packages-section-final">
+          <Section className="presentation-packages-section presentation-packages-section-final" id="packages">
             <div className="presentation-icon-wrapper presentation-icon-green">
               <Rocket className="w-10 h-10" />
             </div>
@@ -1348,6 +1420,9 @@ export default function Presentation() {
           </Button>
         </Section>
       </main>
+
+      {/* Floating TOC for All Sections */}
+      <FloatingTOC />
     </div>
   );
 }

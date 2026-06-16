@@ -4950,3 +4950,217 @@ body {
   color: #7C3AED;
   border: 1px solid rgba(168, 85, 247, 0.15);
 }
+
+/* ============================================
+   FLOATING TOC
+   ============================================ */
+
+.floating-toc-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .floating-toc-container {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+.floating-toc-btn {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: #0071E3;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 113, 227, 0.4);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floating-toc-btn:hover {
+  transform: scale(1.05);
+  background-color: #005bb5;
+}
+
+.floating-toc-btn.open {
+  background-color: #1D1D1F;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.floating-toc-menu {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 231, 235, 0.6);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  animation: slideUpFade 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUpFade {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.floating-toc-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4B5563;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: right;
+}
+
+.floating-toc-item:hover {
+  background-color: #F3F4F6;
+  color: #1D1D1F;
+}
+
+.floating-toc-item.active {
+  background-color: rgba(0, 113, 227, 0.08);
+  color: #0071E3;
+}
+
+/* ============================================
+   MOBILE SPACING & COMPACT LAYOUT OPTIMIZATIONS
+   ============================================ */
+@media (max-width: 767px) {
+  /* Reduce main paddings */
+  .presentation-section {
+    padding: 3rem 1.25rem !important;
+    min-height: auto !important;
+  }
+  
+  .presentation-main {
+    padding-top: 4rem !important;
+  }
+  
+  .presentation-title-section {
+    padding-top: 5rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .presentation-value-proposition-section,
+  .presentation-audience-details-section {
+    padding: 3rem 1.25rem !important;
+  }
+
+  /* Compact Cards */
+  .presentation-stat-card,
+  .presentation-audience-card,
+  .presentation-channels-card,
+  .presentation-strategy-item,
+  .presentation-budget-card,
+  .presentation-kpis-card,
+  .presentation-value-pillar-card,
+  .presentation-persona-card,
+  .market-share-stat-card,
+  .market-share-calculation,
+  .purity-audit-panel,
+  .roadmap-timeline-card,
+  .presentation-package-card,
+  .purity-advice-card,
+  .presentation-channels-card-bordered {
+    padding: 1.25rem !important;
+    border-radius: 1.25rem !important;
+  }
+
+  /* Adjust typography & icons for space */
+  .presentation-section-title {
+    font-size: 1.75rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .presentation-section-subtitle {
+    font-size: 1rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .presentation-icon-wrapper {
+    width: 4rem !important;
+    height: 4rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .presentation-icon-wrapper svg {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+
+  /* Reduce grid gaps */
+  .presentation-grid,
+  .presentation-value-pillars-grid,
+  .presentation-personas-grid,
+  .presentation-channels-grid,
+  .presentation-metrics-grid,
+  .presentation-kpis-primary-grid,
+  .presentation-kpis-secondary-grid,
+  .market-dashboard-grid,
+  .roadmap-timeline-container,
+  .purity-audit-grid {
+    gap: 1rem !important;
+  }
+
+  /* Strategy Funnel Compact */
+  .presentation-strategy-item {
+    gap: 1rem !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .presentation-strategy-content {
+    text-align: center !important;
+    padding-top: 0 !important;
+  }
+
+  .presentation-strategy-line {
+    right: 50% !important;
+    transform: translateX(50%) !important;
+  }
+
+  /* Title & Subtitle */
+  .presentation-title {
+    font-size: 2.25rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .presentation-subtitle {
+    font-size: 1.1rem !important;
+  }
+
+  /* Audit Tables */
+  .purity-audit-table th, 
+  .purity-audit-table td {
+    padding: 0.75rem !important;
+    font-size: 12px !important;
+  }
+  .purity-audit-table-wrapper {
+    overflow-x: auto;
+    margin: 0 -1.25rem;
+    padding: 0 1.25rem;
+  }
+}
