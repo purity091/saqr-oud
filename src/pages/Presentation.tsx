@@ -406,7 +406,10 @@ export default function Presentation() {
           </Button>
         )}
         
-
+        <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-50 to-orange-50 text-amber-700 rounded-full border border-amber-200/60 shadow-sm mr-auto font-semibold text-sm">
+          <Sparkles className="w-4 h-4 text-amber-500" />
+          <span>خطة تسويقية أولية (مقترح مبدئي)</span>
+        </div>
       </nav>
 
       <main className="presentation-main">
