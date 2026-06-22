@@ -386,15 +386,6 @@ export const defaultPlan: Omit<MarketingPlan, 'id' | 'title'> = {
 const oudRiyadhB2cPlan: MarketingPlan = {
   id: 'oud-riyadh-b2c-plan',
   title: 'خطة قصر العود - قطاع التجزئة بالرياض B2C',
-  projectLinks: {
-    websiteUrl: 'https://salla.sa/',
-    websiteLabel: 'زيارة متجر قصر العود في سلة',
-    controlUrl: 'https://s.salla.sa/',
-    controlLabel: 'لوحة تحكم منصة سلة لإدارة الطلبات',
-    controlIcon: 'ShoppingBag',
-    productsSheetUrl: '#',
-    productsSheetLabel: 'جدول منتجات العود وتتبع المخزون'
-  },
   location: 'الرياض، المملكة العربية السعودية',
   sizeLabel: 'تجزئة إلكترونية (عود، بخور، عطور فاخرة)',
   mapTitle: 'خريطة التوصيل والاستهداف الجغرافي بالرياض',
@@ -888,15 +879,6 @@ const oudRiyadhB2cPlan: MarketingPlan = {
 const oudRiyadhB2bPlan: MarketingPlan = {
   id: 'oud-riyadh-b2b-plan',
   title: 'خطة قصر العود - قطاع الشركات والمناسبات B2B',
-  projectLinks: {
-    websiteUrl: 'https://salla.sa/qasr-aloud',
-    websiteLabel: 'كتالوج هدايا الشركات (واتساب بزنس)',
-    controlUrl: 'https://linkedin.com/campaignmanager/',
-    controlLabel: 'لوحة التحكم بإعلانات B2B (LinkedIn Ads)',
-    controlIcon: 'Megaphone',
-    productsSheetUrl: '#',
-    productsSheetLabel: 'سجل صفقات الشركات وعقود توريد الزواجات'
-  },
   location: 'مدينة الرياض - قطاع الأعمال والشركات',
   sizeLabel: 'توزيع وتجهيز هدايا VIP بكميات الجملة',
   mapTitle: 'خريطة انتشار وتوزيع مقرات الشركات بالرياض',

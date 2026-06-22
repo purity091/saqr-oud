@@ -4897,7 +4897,10 @@ body {
 
 @media (max-width: 768px) {
   .purity-audit-panel {
-    padding: 24px 20px;
+    padding: 1rem !important;
+    margin-top: 1rem !important;
+    margin-bottom: 2rem !important;
+    border-radius: 1.25rem !important;
   }
   
   .purity-audit-grid, .purity-advice-grid {
@@ -4905,13 +4908,56 @@ body {
     gap: 16px;
   }
   
-  .purity-audit-table th, .purity-audit-table td {
-    padding: 12px 14px;
-    font-size: 13px;
+  .purity-audit-table-wrapper {
+    margin-top: 1.5rem !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  .purity-audit-table, 
+  .purity-audit-table tbody, 
+  .purity-audit-table tr, 
+  .purity-audit-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .purity-audit-table thead {
+    display: none;
+  }
+
+  .purity-audit-table tr {
+    margin-bottom: 1rem;
+    background: #FFFFFF;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+  }
+
+  .purity-audit-table td {
+    padding: 0.5rem 0 !important;
+    border-bottom: none !important;
+    text-align: right !important;
+  }
+
+  .purity-audit-table td:nth-child(1) {
+    font-size: 1.1rem !important;
+    color: #111827;
+    border-bottom: 1px dashed #E5E7EB !important;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.75rem !important;
+  }
+
+  .purity-audit-table td.highlight-val {
+    text-align: right !important;
   }
 
   .purity-advice-card {
-    padding: 20px;
+    padding: 1rem !important;
+    margin-top: 1.5rem !important;
+    border-radius: 1.25rem !important;
   }
 }
 
@@ -5046,34 +5092,176 @@ body {
 }
 
 /* ============================================
-   MOBILE SPACING & COMPACT LAYOUT OPTIMIZATIONS
+   COMPREHENSIVE MOBILE RESPONSIVE OVERRIDES
    ============================================ */
 @media (max-width: 767px) {
-  /* Reduce main paddings */
+
+  /* ---- GLOBAL OVERFLOW FIX ---- */
+  body, #root, .presentation-main {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* ---- NAVIGATION ---- */
+  .presentation-nav {
+    padding: 0.6rem 0.875rem !important;
+    gap: 0.5rem !important;
+  }
+  .presentation-edit-btn {
+    font-size: 0.8rem !important;
+    padding: 0.4rem 0.6rem !important;
+    gap: 0.25rem !important;
+  }
+  .presentation-edit-btn svg {
+    width: 0.875rem !important;
+    height: 0.875rem !important;
+  }
+
+  /* ---- MAIN WRAPPER ---- */
+  .presentation-main {
+    padding-top: 3.5rem !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* ---- EVERY SECTION ---- */
   .presentation-section {
-    padding: 3rem 1.25rem !important;
+    padding: 2.5rem 1rem !important;
     min-height: auto !important;
   }
-  
-  .presentation-main {
-    padding-top: 4rem !important;
-  }
-  
   .presentation-title-section {
-    padding-top: 5rem !important;
+    padding-top: 4.5rem !important;
     padding-bottom: 2rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
-
   .presentation-value-proposition-section,
   .presentation-audience-details-section {
-    padding: 3rem 1.25rem !important;
+    padding: 2.5rem 1rem !important;
+  }
+  .presentation-no-marketing-section {
+    margin: 1.5rem 0 !important;
+    padding: 2rem 1rem !important;
+    border-radius: 1.25rem !important;
+  }
+  .market-redesign-section {
+    margin: 1.5rem 0 !important;
+    padding: 2rem 1rem !important;
+    border-radius: 1.25rem !important;
+  }
+  .presentation-packages-section {
+    padding: 2.5rem 1rem !important;
   }
 
-  /* Compact Cards */
+  /* ---- ICON WRAPPERS ---- */
+  .presentation-icon-wrapper {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+    border-radius: 1rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .presentation-icon-wrapper svg {
+    width: 1.75rem !important;
+    height: 1.75rem !important;
+  }
+
+  /* ---- TYPOGRAPHY ---- */
+  .presentation-title {
+    font-size: 1.75rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.75rem !important;
+  }
+  .presentation-subtitle {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+  .presentation-section-title {
+    font-size: 1.4rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .presentation-section-subtitle {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .presentation-description {
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .presentation-value-statement {
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .presentation-problems-intro {
+    font-size: 0.9rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* ---- TITLE HERO STATS ---- */
+  .presentation-title-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.6rem !important;
+  }
+  .presentation-title-stat {
+    padding: 0.75rem !important;
+    gap: 0.5rem !important;
+    border-radius: 0.875rem !important;
+  }
+  .presentation-title-stat-icon {
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+  }
+  .presentation-title-stat-icon svg {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+  .presentation-title-stat-value {
+    font-size: 1.1rem !important;
+  }
+  .presentation-title-stat-label {
+    font-size: 0.7rem !important;
+  }
+
+  /* ---- TITLE BADGES (hero) ---- */
+  .presentation-title-badges {
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    justify-content: center !important;
+  }
+  .presentation-badge {
+    font-size: 0.75rem !important;
+    padding: 0.35rem 0.75rem !important;
+  }
+
+  /* ---- GENERAL GRIDS → SINGLE COLUMN ---- */
+  .presentation-grid,
+  .presentation-value-pillars-grid,
+  .presentation-personas-grid,
+  .presentation-channels-grid,
+  .presentation-metrics-grid,
+  .presentation-problems-grid,
+  .roadmap-timeline-container,
+  .purity-audit-grid,
+  .purity-advice-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.875rem !important;
+  }
+  .presentation-kpis-primary-grid,
+  .presentation-kpis-secondary-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  /* ---- CARDS PADDING REDUCTION ---- */
   .presentation-stat-card,
+  .presentation-stat-card-enhanced,
   .presentation-audience-card,
   .presentation-channels-card,
-  .presentation-strategy-item,
+  .presentation-channels-card-bordered,
   .presentation-budget-card,
   .presentation-kpis-card,
   .presentation-value-pillar-card,
@@ -5081,139 +5269,333 @@ body {
   .market-share-stat-card,
   .market-share-calculation,
   .purity-audit-panel,
-  .roadmap-timeline-card,
-  .presentation-package-card,
   .purity-advice-card,
-  .presentation-channels-card-bordered,
-  .presentation-stat-card-enhanced {
-    padding: 1.25rem !important;
-    border-radius: 1.25rem !important;
-  }
-
-  /* Adjust typography & icons for space */
-  .presentation-section-title {
-    font-size: 1.75rem !important;
-    margin-bottom: 2rem !important;
-  }
-
-  .presentation-section-subtitle {
-    font-size: 1rem !important;
-    margin-bottom: 2rem !important;
-  }
-
-  .presentation-icon-wrapper {
-    width: 4rem !important;
-    height: 4rem !important;
-    margin-bottom: 1.5rem !important;
-  }
-  .presentation-icon-wrapper svg {
-    width: 2rem !important;
-    height: 2rem !important;
-  }
-
-  /* Reduce grid gaps */
-  .presentation-grid,
-  .presentation-value-pillars-grid,
-  .presentation-personas-grid,
-  .presentation-channels-grid,
-  .presentation-metrics-grid,
-  .presentation-kpis-primary-grid,
-  .presentation-kpis-secondary-grid,
-  .market-dashboard-grid,
-  .roadmap-timeline-container,
-  .purity-audit-grid {
-    gap: 1rem !important;
-  }
-
-  /* Strategy Funnel Compact */
-  .presentation-strategy-item {
-    gap: 1rem !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-  }
-
-  .presentation-strategy-content {
-    text-align: center !important;
-    padding-top: 0 !important;
-  }
-
-  .presentation-strategy-line {
-    right: 50% !important;
-    transform: translateX(50%) !important;
-  }
-
-  /* Title & Subtitle */
-  .presentation-title {
-    font-size: 2.25rem !important;
-    margin-bottom: 1rem !important;
-  }
-  
-  .presentation-subtitle {
-    font-size: 1.1rem !important;
-  }
-
-  /* Audit Tables */
-  .purity-audit-table th, 
-  .purity-audit-table td {
-    padding: 0.75rem !important;
-    font-size: 12px !important;
-  }
-  .purity-audit-table-wrapper {
-    overflow-x: auto;
-    margin: 0 -1.25rem;
-    padding: 0 1.25rem;
-  }
-
-  .presentation-nav {
-    padding: 0.75rem 1rem !important;
-  }
-
-  .presentation-title-stats {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.75rem !important;
-  }
-
-  .presentation-title-stat {
+  .audit-item {
     padding: 1rem !important;
-    gap: 0.5rem !important;
+    border-radius: 1rem !important;
+  }
+  .roadmap-timeline-card,
+  .presentation-package-card {
+    padding: 1rem !important;
     border-radius: 1rem !important;
   }
 
-  .presentation-title-stat-value {
-    font-size: 1.25rem !important;
+  /* ---- PROBLEM CARDS ---- */
+  .presentation-problem-card-icon {
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .presentation-problem-card-title {
+    font-size: 0.95rem !important;
+  }
+  .presentation-problem-card-desc {
+    font-size: 0.85rem !important;
   }
 
-  .presentation-title-stat-label {
+  /* ---- BENEFIT CARDS (VALUE PROP) ---- */
+  .presentation-benefits-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  .presentation-benefit-card {
+    padding: 0.875rem 1rem !important;
+    border-radius: 0.875rem !important;
+  }
+  .presentation-benefit-text {
+    font-size: 0.875rem !important;
+  }
+
+  /* ---- STRATEGY FUNNEL ---- */
+  .presentation-strategy-container {
+    max-width: 100% !important;
+  }
+  .presentation-strategy-line {
+    display: none !important;
+  }
+  .presentation-strategy-item {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 0.875rem !important;
+    text-align: right !important;
+    padding: 1rem !important;
+  }
+  .presentation-strategy-number {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    min-width: 2.5rem !important;
+    font-size: 1rem !important;
+    border-radius: 0.75rem !important;
+  }
+  .presentation-strategy-content {
+    text-align: right !important;
+    padding-top: 0 !important;
+  }
+  .presentation-strategy-item-title {
+    font-size: 1rem !important;
+  }
+  .presentation-strategy-item-desc {
+    font-size: 0.875rem !important;
+  }
+
+  /* ---- MARKET DASHBOARD ---- */
+  .market-dashboard-card {
+    padding: 1rem !important;
+    border-radius: 1.25rem !important;
+  }
+  .market-dashboard-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .market-context-item {
+    padding: 0.875rem !important;
+    gap: 0.75rem !important;
+  }
+  .market-context-value {
+    font-size: 1.25rem !important;
+  }
+  .market-context-label {
+    font-size: 0.75rem !important;
+  }
+  .market-viz-header h3 {
+    font-size: 1rem !important;
+  }
+  .market-viz-header p {
+    font-size: 0.8rem !important;
+  }
+  .layer-info {
+    font-size: 0.8rem !important;
+  }
+  .layer-percent {
+    font-size: 0.8rem !important;
+  }
+  .market-viz-targets {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+  .target-box {
+    padding: 0.875rem !important;
+    border-radius: 0.875rem !important;
+  }
+  .target-label {
+    font-size: 0.7rem !important;
+  }
+  .target-value {
+    font-size: 1.1rem !important;
+  }
+  .target-desc {
+    font-size: 0.75rem !important;
+  }
+  .market-dashboard-footer {
+    padding: 0.875rem 1rem !important;
+    border-radius: 0.875rem !important;
+    gap: 0.5rem !important;
+    font-size: 0.85rem !important;
+  }
+  .market-share-item-desc {
+    font-size: 0.8rem !important;
+  }
+
+  /* ---- PURITY AUDIT PANEL ---- */
+  .purity-audit-panel {
+    padding: 1rem !important;
+    border-radius: 1.25rem !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .purity-audit-badge-container {
+    margin-bottom: 1rem !important;
+  }
+  .purity-audit-badge {
+    font-size: 0.75rem !important;
+    padding: 0.4rem 0.875rem !important;
+    text-align: center !important;
+  }
+  .purity-audit-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .audit-item {
+    padding: 0.875rem !important;
+    border-radius: 0.875rem !important;
+  }
+  .audit-item h4 {
+    font-size: 0.85rem !important;
+    flex-wrap: wrap;
+    line-height: 1.4;
+    gap: 4px !important;
+  }
+  .audit-item p {
+    font-size: 0.8rem !important;
+    line-height: 1.6 !important;
+  }
+  .purity-status-badge {
+    font-size: 0.65rem !important;
+    padding: 2px 6px !important;
+  }
+
+  /* ---- AUDIT TABLE → CARD LAYOUT ---- */
+  .purity-audit-table-wrapper {
+    margin-top: 1rem !important;
+    overflow-x: visible;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+  }
+  .purity-audit-table,
+  .purity-audit-table tbody,
+  .purity-audit-table tr,
+  .purity-audit-table td {
+    display: block !important;
+    width: 100% !important;
+  }
+  .purity-audit-table thead {
+    display: none !important;
+  }
+  .purity-audit-table tr {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(0,0,0,0.06) !important;
+    border-radius: 0.875rem !important;
+    padding: 0.875rem !important;
+    margin-bottom: 0.75rem !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03) !important;
+  }
+  .purity-audit-table td {
+    padding: 0.35rem 0 !important;
+    border-bottom: none !important;
+    text-align: right !important;
+    font-size: 0.82rem !important;
+    line-height: 1.5 !important;
+  }
+  .purity-audit-table td:first-child {
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    color: #111827 !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 1px dashed #E5E7EB !important;
+    margin-bottom: 0.25rem !important;
+  }
+  .purity-audit-table td.highlight-val {
+    text-align: right !important;
+    margin: 0.25rem 0 !important;
+  }
+  .purity-audit-table td.highlight-val span {
+    font-size: 0.8rem !important;
+    padding: 0.25rem 0.625rem !important;
+  }
+
+  /* ---- ADVICE CARDS ---- */
+  .purity-advice-card {
+    padding: 1rem !important;
+    border-radius: 1rem !important;
+    margin-top: 0.75rem !important;
+  }
+  .purity-advice-header {
+    gap: 0.5rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  .purity-advice-header h3 {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+  }
+  .purity-advice-icon {
+    width: 2rem !important;
+    height: 2rem !important;
+    min-width: 2rem !important;
+    border-radius: 0.5rem !important;
+  }
+  .purity-advice-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  .advice-sub-card {
+    padding: 0.875rem !important;
+    border-radius: 0.875rem !important;
+  }
+  .advice-sub-title {
+    font-size: 0.85rem !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .advice-sub-desc {
+    font-size: 0.8rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* ---- KPIs ---- */
+  .presentation-kpis-section {
+    margin-bottom: 1.5rem !important;
+  }
+  .presentation-kpis-section-header {
+    gap: 0.5rem !important;
+    margin-bottom: 0.875rem !important;
+  }
+  .presentation-kpis-section-title {
+    font-size: 0.95rem !important;
+  }
+  .presentation-kpi-primary-card {
+    padding: 0.875rem !important;
+    border-radius: 0.875rem !important;
+  }
+  .presentation-kpi-name {
+    font-size: 0.85rem !important;
+  }
+  .presentation-kpi-target {
+    font-size: 0.8rem !important;
+  }
+  .presentation-kpi-detail {
     font-size: 0.75rem !important;
   }
 
-  .presentation-title-stat-icon {
-    width: 2.5rem !important;
-    height: 2.5rem !important;
+  /* ---- CHANNELS ---- */
+  .presentation-channels-title {
+    font-size: 1rem !important;
+    margin-bottom: 0.875rem !important;
+  }
+  .presentation-channel-item {
+    font-size: 0.9rem !important;
+    gap: 0.625rem !important;
   }
 
-  .presentation-problem-card-icon {
-    width: 2.5rem !important;
-    height: 2.5rem !important;
-    margin-bottom: 0.5rem !important;
+  /* ---- ROADMAP ---- */
+  .roadmap-timeline-card {
+    padding: 1rem !important;
+    border-radius: 1rem !important;
+  }
+  .roadmap-month-title {
+    font-size: 1rem !important;
+  }
+  .roadmap-month-focus {
+    font-size: 0.85rem !important;
   }
 
-  .purity-advice-grid, .purity-audit-grid {
-    grid-template-columns: 1fr !important;
+  /* ---- PACKAGES ---- */
+  .presentation-package-card {
+    padding: 1rem !important;
+    border-radius: 1rem !important;
   }
 
+  /* ---- STAT ICONS ---- */
   .presentation-stat-icon {
-    width: 3.5rem !important;
-    height: 3.5rem !important;
+    width: 3rem !important;
+    height: 3rem !important;
   }
 
-  .presentation-no-marketing-section {
-    margin: 2rem 1rem !important;
-    border-radius: 1.5rem !important;
+  /* ---- BUDGET ---- */
+  .presentation-budget-value {
+    font-size: 1.5rem !important;
+  }
+  .presentation-budget-title {
+    font-size: 1.1rem !important;
   }
 
-  .presentation-packages-section {
-    padding: 3rem 1.25rem !important;
+  /* ---- MAP ---- */
+  .leaflet-container {
+    height: 280px !important;
+    border-radius: 1rem !important;
   }
 }
