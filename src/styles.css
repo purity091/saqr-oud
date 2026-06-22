@@ -5084,7 +5084,8 @@ body {
   .roadmap-timeline-card,
   .presentation-package-card,
   .purity-advice-card,
-  .presentation-channels-card-bordered {
+  .presentation-channels-card-bordered,
+  .presentation-stat-card-enhanced {
     padding: 1.25rem !important;
     border-radius: 1.25rem !important;
   }
@@ -5162,5 +5163,57 @@ body {
     overflow-x: auto;
     margin: 0 -1.25rem;
     padding: 0 1.25rem;
+  }
+
+  .presentation-nav {
+    padding: 0.75rem 1rem !important;
+  }
+
+  .presentation-title-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  .presentation-title-stat {
+    padding: 1rem !important;
+    gap: 0.5rem !important;
+    border-radius: 1rem !important;
+  }
+
+  .presentation-title-stat-value {
+    font-size: 1.25rem !important;
+  }
+
+  .presentation-title-stat-label {
+    font-size: 0.75rem !important;
+  }
+
+  .presentation-title-stat-icon {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+  }
+
+  .presentation-problem-card-icon {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .purity-advice-grid, .purity-audit-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .presentation-stat-icon {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+  }
+
+  .presentation-no-marketing-section {
+    margin: 2rem 1rem !important;
+    border-radius: 1.5rem !important;
+  }
+
+  .presentation-packages-section {
+    padding: 3rem 1.25rem !important;
   }
 }

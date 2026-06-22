@@ -406,9 +406,9 @@ export default function Presentation() {
           </Button>
         )}
         
-        <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-50 to-orange-50 text-amber-700 rounded-full border border-amber-200/60 shadow-sm mr-auto font-semibold text-sm">
-          <Sparkles className="w-4 h-4 text-amber-500" />
-          <span>خطة تسويقية أولية (مقترح مبدئي)</span>
+        <div className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-gradient-to-r from-amber-50 to-orange-50 text-amber-700 rounded-full border border-amber-200/60 shadow-sm mr-auto font-semibold text-xs md:text-sm max-w-[50%] md:max-w-none overflow-hidden">
+          <Sparkles className="w-4 h-4 text-amber-500 flex-shrink-0" />
+          <span className="truncate">خطة تسويقية أولية (مقترح مبدئي)</span>
         </div>
       </nav>
 
@@ -596,9 +596,13 @@ export default function Presentation() {
                   boxShadow: '0 4px 12px rgba(168, 85, 247, 0.03)',
                   display: 'inline-flex',
                   alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center',
+                  maxWidth: '100%',
+                  flexWrap: 'wrap',
                   gap: '8px'
                 }}>
-                  <Shield className="w-4 h-4" />
+                  <Shield className="w-4 h-4 flex-shrink-0" />
                   <span>مصادر البيانات والتقارير لمبيعات العود والعطور بالسعودية لعام 2026</span>
                 </span>
               </div>
@@ -749,9 +753,13 @@ export default function Presentation() {
                   boxShadow: '0 4px 12px rgba(168, 85, 247, 0.03)',
                   display: 'inline-flex',
                   alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center',
+                  maxWidth: '100%',
+                  flexWrap: 'wrap',
                   gap: '8px'
                 }}>
-                  <Shield className="w-4 h-4" />
+                  <Shield className="w-4 h-4 flex-shrink-0" />
                   <span>إحصاءات سوق المناسبات وهدايا الشركات بالرياض لعام 2026</span>
                 </span>
               </div>
